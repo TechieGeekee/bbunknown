@@ -1,0 +1,647 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Enhanced Cyber Effects */
+.glowing-cyber-title {
+    animation: cyberGlow 3s ease-in-out infinite !important;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(139, 69, 193, 0.6) !important;
+}
+
+.rotating-shield {
+    animation: rotateShield 4s linear infinite !important;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.8)) !important;
+}
+
+.rotating-shield-container {
+    position: relative;
+}
+
+.rotating-shield-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseCyber 2s ease-in-out infinite;
+}
+
+/* Enhanced Typing Effect */
+.typing-text {
+    position: relative;
+}
+
+.typing-text::after {
+    content: '|';
+    animation: blinkCursor 1s infinite, colorShift 2s ease-in-out infinite;
+    margin-left: 2px;
+}
+
+/* Cyber Animations */
+@keyframes cyberGlow {
+    0%, 100% { 
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(139, 69, 193, 0.6);
+        transform: scale(1);
+    }
+    50% { 
+        text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 60px rgba(139, 69, 193, 0.9);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes rotateShield {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseCyber {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% { 
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+@keyframes blinkCursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes colorShift {
+    0%, 100% { color: #00FFFF; }
+    50% { color: #8B45C1; }
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Background Animations */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(52, 41, 211, 0.3) 0%,
+        rgba(27, 21, 109, 0.1) 50%,
+        transparent 100%
+    );
+    animation: breathe 20s ease-in-out infinite;
+}
+
+.floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+.orb-1 {
+    top: 25%;
+    left: 25%;
+    width: 8rem;
+    height: 8rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3));
+    animation: float-1 8s ease-in-out infinite;
+}
+
+.orb-2 {
+    top: 75%;
+    right: 25%;
+    width: 6rem;
+    height: 6rem;
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(59, 130, 246, 0.2));
+    animation: float-2 10s ease-in-out infinite 2s;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    animation: slideInDown 0.8s ease-out;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: fadeInLeft 0.8s ease-out 0.2s both;
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
+.logo-b {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 3rem;
+    color: #fff;
+    transform: rotate(180deg);
+    animation: logoSpin 3s ease-in-out infinite;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Russo One', sans-serif;
+    font-weight: normal;
+    color: #fff;
+}
+
+.logo-text span {
+    font-size: 1.25rem;
+    line-height: 1.1;
+}
+
+/* Navigation Styles */
+.desktop-nav {
+    display: none;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.nav-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12.5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-link {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    animation: fadeInRight 0.8s ease-out 0.6s both;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: cover;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main-heading {
+    font-family: 'Passion One', sans-serif;
+    font-weight: normal;
+    color: #fff;
+    font-size: 4rem;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 40px rgba(52, 41, 211, 0.2);
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.subtitle {
+    font-family: 'Passion One', sans-serif;
+    font-weight: normal;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1.2;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out 1.2s both;
+}
+
+.cta-container {
+    padding-top: 2rem;
+    animation: scaleIn 0.6s ease-out 1.6s both;
+}
+
+.cta-button {
+    font-family: 'Passion One', sans-serif;
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: #fff;
+    background: linear-gradient(90deg, #3b82f6, #9333ea);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(52, 41, 211, 0.3);
+}
+
+.cta-button:active {
+    transform: scale(0.95);
+}
+
+.cta-text {
+    position: relative;
+    z-index: 1;
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+/* Particles */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: particleFloat 5s ease-in-out infinite;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: block;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    animation: slideInUp 0.6s ease-out 1s both;
+}
+
+.mobile-nav-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12.5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.mobile-nav-item {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 15px;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.mobile-nav-item.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+    .header {
+        padding: 2rem 1.5rem;
+    }
+    
+    .logo-b {
+        font-size: 3.5rem;
+    }
+    
+    .logo-text span {
+        font-size: 1.5rem;
+    }
+    
+    .main-heading {
+        font-size: 5rem;
+    }
+    
+    .subtitle {
+        font-size: 2.5rem;
+    }
+    
+    .cta-button {
+        font-size: 1.75rem;
+        padding: 1.25rem 2.5rem;
+    }
+    
+    .content-container {
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: block;
+    }
+    
+    .mobile-nav {
+        display: none;
+    }
+    
+    .main-heading {
+        font-size: 6rem;
+    }
+    
+    .subtitle {
+        font-size: 3rem;
+    }
+    
+    .cta-button {
+        font-size: 2rem;
+        padding: 1.5rem 3rem;
+    }
+    
+    .nav-list {
+        gap: 2.5rem;
+    }
+    
+    .nav-link {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header {
+        padding: 2rem 2rem;
+    }
+    
+    .logo-b {
+        font-size: 4rem;
+    }
+    
+    .logo-text span {
+        font-size: 1.75rem;
+    }
+    
+    .main-heading {
+        font-size: 7rem;
+    }
+    
+    .subtitle {
+        font-size: 3.5rem;
+    }
+    
+    .cta-button {
+        font-size: 2.5rem;
+        padding: 1.75rem 3.5rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .main-heading {
+        font-size: 9rem;
+    }
+    
+    .subtitle {
+        font-size: 4rem;
+    }
+    
+    .cta-button {
+        font-size: 3rem;
+        padding: 2rem 4rem;
+    }
+}
+
+/* Animations */
+@keyframes breathe {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(2deg); }
+}
+
+@keyframes float-1 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+    50% { transform: translate(50px, -30px); opacity: 0.6; }
+}
+
+@keyframes float-2 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.2; }
+    50% { transform: translate(-40px, 40px); opacity: 0.5; }
+}
+
+@keyframes logoSpin {
+    0%, 100% { transform: rotate(180deg); }
+    50% { transform: rotate(170deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(52, 41, 211, 0.8);
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-100px) scale(1);
+    }
+    100% {
+        transform: translateY(-200px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Loading animations - applied by JavaScript */
+.fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+}
